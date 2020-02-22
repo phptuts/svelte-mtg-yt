@@ -6,9 +6,19 @@
   $: redWon = blueScore <= 0;
   $: gameOver = blueWon || redWon;
 
+  function updateBlueScore(e) {
+    const updateScore = e.detail;
+    blueScore += updateScore;
+  }
+
+  function updateRedScore(e) {
+    const updateScore = e.detail;
+    redScore += updateScore;
+  }
+
   function newGame() {
     redScore = 20;
-    blueScore = 0;
+    blueScore = 20;
   }
 </script>
 
@@ -41,12 +51,14 @@
   <div id="controls-container">
     <Player
       {gameOver}
+      on:points={updateBlueScore}
       fontColor="#0000AA"
       won={blueWon}
       winningText="Blue wins"
       score={blueScore} />
     <Player
       {gameOver}
+      on:points={updateRedScore}
       fontColor="#AA0000"
       won={redWon}
       winningText="Red Wins"

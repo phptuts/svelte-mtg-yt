@@ -1,16 +1,19 @@
 <script>
+  import { createEventDispatcher } from "svelte";
   export let score;
   export let winningText;
   export let won;
   export let fontColor;
   export let gameOver = false;
 
+  const dispatch = createEventDispatcher();
+
   function minus() {
-    console.log("minus 1");
+    dispatch("points", -1);
   }
 
   function plus() {
-    console.log("plus 1");
+    dispatch("points", 1);
   }
 </script>
 
