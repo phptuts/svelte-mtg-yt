@@ -5,6 +5,11 @@
   $: blueWon = redScore <= 0;
   $: redWon = blueScore <= 0;
   $: gameOver = blueWon || redWon;
+
+  function newGame() {
+    redScore = 20;
+    blueScore = 0;
+  }
 </script>
 
 <style>
@@ -47,5 +52,5 @@
       winningText="Red Wins"
       score={redScore} />
   </div>
-  <button>Start Game</button>
+  <button on:click={newGame}>Start Game</button>
 </main>
