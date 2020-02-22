@@ -49,7 +49,7 @@ export default {
     // instead of npm run dev), minify
     production &&
       terser() &&
-      ghpages.publish('publish', () => {
+      ghpages.publish('public', () => {
         console.log('published to github');
       })
   ],
